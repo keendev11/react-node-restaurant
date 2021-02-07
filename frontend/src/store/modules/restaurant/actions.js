@@ -10,6 +10,7 @@ export const CREATE_RESTAURANT = 'CREATE_RESTAURANT'
 export const GET_RESTAURANT = 'GET_RESTAURANT'
 export const UPDATE_RESTAURANT = 'UPDATE_RESTAURANT'
 export const DELETE_RESTAURANT = 'DELETE_RESTAURANT'
+export const CLEAR_RESTAURANT = 'CLEAR_RESTAURANT'
 
 export const LIST_REVIEW = 'LIST_REVIEW'
 export const CREATE_REVIEW = 'CREATE_REVIEW'
@@ -21,24 +22,40 @@ export const DELETE_REVIEW = 'DELETE_REVIEW'
  */
 
 export const listRestaurant = createAction(LIST_RESTAURANT)
-export const listRestaurantSuccess = createAction(resolvedAction(LIST_RESTAURANT))
+export const listRestaurantSuccess = createAction(
+  resolvedAction(LIST_RESTAURANT),
+)
 export const listRestaurantFail = createAction(rejectedAction(LIST_RESTAURANT))
 
 export const createRestaurant = createAction(CREATE_RESTAURANT)
-export const createRestaurantSuccess = createAction(resolvedAction(CREATE_RESTAURANT))
-export const createRestaurantFail = createAction(rejectedAction(CREATE_RESTAURANT))
+export const createRestaurantSuccess = createAction(
+  resolvedAction(CREATE_RESTAURANT),
+)
+export const createRestaurantFail = createAction(
+  rejectedAction(CREATE_RESTAURANT),
+)
 
 export const getRestaurant = createAction(GET_RESTAURANT)
 export const getRestaurantSuccess = createAction(resolvedAction(GET_RESTAURANT))
 export const getRestaurantFail = createAction(rejectedAction(GET_RESTAURANT))
 
 export const updateRestaurant = createAction(UPDATE_RESTAURANT)
-export const updateRestaurantSuccess = createAction(resolvedAction(UPDATE_RESTAURANT))
-export const updateRestaurantFail = createAction(rejectedAction(UPDATE_RESTAURANT))
+export const updateRestaurantSuccess = createAction(
+  resolvedAction(UPDATE_RESTAURANT),
+)
+export const updateRestaurantFail = createAction(
+  rejectedAction(UPDATE_RESTAURANT),
+)
 
 export const deleteRestaurant = createAction(DELETE_RESTAURANT)
-export const deleteRestaurantSuccess = createAction(resolvedAction(DELETE_RESTAURANT))
-export const deleteRestaurantFail = createAction(rejectedAction(DELETE_RESTAURANT))
+export const deleteRestaurantSuccess = createAction(
+  resolvedAction(DELETE_RESTAURANT),
+)
+export const deleteRestaurantFail = createAction(
+  rejectedAction(DELETE_RESTAURANT),
+)
+
+export const clearRestaurant = createAction(CLEAR_RESTAURANT)
 
 export const listReview = createAction(LIST_REVIEW)
 export const listReviewSuccess = createAction(resolvedAction(LIST_REVIEW))

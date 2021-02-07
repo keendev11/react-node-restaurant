@@ -8,6 +8,7 @@ import {
   CREATE_RESTAURANT,
   UPDATE_RESTAURANT,
   DELETE_RESTAURANT,
+  CLEAR_RESTAURANT,
   LIST_REVIEW,
   CREATE_REVIEW,
   UPDATE_REVIEW,
@@ -73,6 +74,14 @@ export const reducer = handleActions(
     }),
     [resolvedAction(DELETE_RESTAURANT)]: (state, { type }) => ({
       ...state,
+      status: type,
+    }),
+    [CLEAR_RESTAURANT]: (state, { type }) => ({
+      ...state,
+      restaurant: null,
+      reviews: {
+        ...initialState.reviews,
+      },
       status: type,
     }),
     [resolvedAction(LIST_REVIEW)]: (state, { payload, type }) => ({

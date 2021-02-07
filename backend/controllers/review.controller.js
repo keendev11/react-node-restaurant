@@ -20,6 +20,9 @@ module.exports = {
       page: page,
       paginate: per_page,
       order: [['id', 'ASC']],
+      where: {
+        restaurantId: req.restaurant.id,
+      },
     })
       .then((data) =>
         res.json({

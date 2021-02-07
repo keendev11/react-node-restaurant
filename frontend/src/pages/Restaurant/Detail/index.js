@@ -5,6 +5,7 @@ import { Card, Col, Rate, Row } from 'antd'
 import {
   GET_RESTAURANT,
   getRestaurant,
+  clearRestaurant,
   selectRestaurant,
   selectRestaurantStatus,
 } from 'store/modules/restaurant'
@@ -21,16 +22,22 @@ const RestaurantDetailPage = () => {
     dispatch(getRestaurant(params.id))
   }, [dispatch, params.id])
 
+  useEffect(() => {
+    return function cleanup() {
+      dispatch(clearRestaurant())
+    }
+  }, [dispatch])
+
   if (status === GET_RESTAURANT || !restaurant) {
     return <Loader />
   }
 
   return (
-    <div className="page user-page">
-      <h1 className="page-heading">{restaurant.name}</h1>
+    <div className='page user-page'>
+      <h1 className='page-heading'>{restaurant.name}</h1>
       <Row gutter={20}>
         <Col span={10}>
-          <Card title="Restaurant Details" bordered={false}>
+          <Card title='Restaurant Details' bordered={false}>
             <div>
               <b>Name:</b> {restaurant.name}
             </div>
@@ -44,7 +51,7 @@ const RestaurantDetailPage = () => {
         </Col>
         {restaurant.maxReview && (
           <Col span={6} offset={2}>
-            <Card title="Highest Review">
+            <Card title='Highest Review'>
               <div>User: {restaurant.maxReview.user.name}</div>
               <div>Comment: {restaurant.maxReview.comment}</div>
               <div>
@@ -55,8 +62,8 @@ const RestaurantDetailPage = () => {
         )}
         {restaurant.minReview && (
           <Col span={6}>
-            <Card title="Lowest Review">
-              <div>User: {restaurant.maxReview.user.name}</div>
+            <Card title='Lowest Review'>
+              <div>User: {restaurant.minReview.user.name}</div>
               <div>Comment: {restaurant.minReview.comment}</div>
               <Rate value={restaurant.minReview.rating} disabled />
             </Card>
@@ -64,7 +71,7 @@ const RestaurantDetailPage = () => {
         )}
       </Row>
 
-      <h1 className="page-subheading">Reviews</h1>
+      <h1 className='page-subheading'>Reviews</h1>
       <ReviewTable />
     </div>
   )
